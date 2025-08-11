@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class App {
     
     public static void main(String[] args) throws Exception {
-        Scanner leia = new Scanner(System.in);
+         Scanner leia = new Scanner(System.in);
             
          String nome, opcao, diagnostico;
          double altura, peso, imc;
