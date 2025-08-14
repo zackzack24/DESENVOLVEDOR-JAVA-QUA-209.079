@@ -1,4 +1,4 @@
-package com.heranca.app;
+package com.HERANCA.app;
 
 import java.util.Scanner;
 
@@ -47,6 +47,6 @@ public class App {
         System.out.println("Telefone da Empresa" + empresa.telefone);
         System.out.println("Endereço da Empresa" + empresa.endereco);
 
-       
+       leia.close();
     } 
 }

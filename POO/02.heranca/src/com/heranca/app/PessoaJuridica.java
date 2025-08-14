@@ -1,4 +1,4 @@
-package com.heranca.app;
+package com.HERANCA.app;
 
 public class PessoaJuridica extends Pessoa{
     // atributos
