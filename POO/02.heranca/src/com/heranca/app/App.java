@@ -1,4 +1,4 @@
-package com.HERANCA.app;
+package com.heranca.app;
 
 import java.util.Scanner;
 

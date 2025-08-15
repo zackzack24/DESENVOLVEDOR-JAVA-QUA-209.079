@@ -1,4 +1,6 @@
-package com.QUATROPILARES.model;
+package com.quatropilares.model;
+
+import java.util.Scanner;
 
 abstract public class Pessoa {
     // atributos

@@ -1,4 +1,4 @@
-package com.ENCAPSULAMENTO.app;
+package com.encapsulamento.app;
 
 public class Pessoa {
     // atributos

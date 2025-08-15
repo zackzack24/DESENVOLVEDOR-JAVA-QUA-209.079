@@ -1,9 +1,9 @@
-package com.QUATROPILARES.app;
+package com.quatropilares.app;
 
 import java.util.Scanner;
 
-import com.QUATROPILARES.model.PessoaFisica;
-import com.QUATROPILARES.model.PessoaJuridica;
+import com.QuatroPilares.model.PessoaFisica;
+import com.QuatroPilares.model.PessoaJuridica;
 
 public class App {
     public static void main(String[] args) throws Exception {

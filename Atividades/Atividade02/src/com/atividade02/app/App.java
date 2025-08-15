@@ -1,4 +1,4 @@
-package com.atividade02.app;
+package Atividades.atividade02.src.com.atividade02.app;
 
 import java.util.Scanner;
 

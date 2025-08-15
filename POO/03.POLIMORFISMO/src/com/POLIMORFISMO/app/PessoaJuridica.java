@@ -1,4 +1,4 @@
-package com.POLIMORFISMO.app;
+package com.polimorfismo.app;
 
 final public class PessoaJuridica extends Pessoa {
     // atributos

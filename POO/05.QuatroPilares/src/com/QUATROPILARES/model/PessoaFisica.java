@@ -1,4 +1,6 @@
-package com.QUATROPILARES.model;
+package com.quatropilares.model;
+
+import java.util.Scanner;
 
 final public class PessoaFisica extends Pessoa {
     // atributos

@@ -1,4 +1,4 @@
-package com.QUATROPILARES.model;
+package com.quatropilares.model;
 
 final public class PessoaJuridica extends Pessoa {
     // atributos

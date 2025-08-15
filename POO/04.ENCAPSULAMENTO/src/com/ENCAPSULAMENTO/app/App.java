@@ -1,4 +1,4 @@
-package com.ENCAPSULAMENTO.app;
+package com.encapsulamento.app;
 
 import java.util.Scanner;
 

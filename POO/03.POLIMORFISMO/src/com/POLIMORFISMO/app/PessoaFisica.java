@@ -1,6 +1,6 @@
-package com.POLIMORFISMO.app;
+package com.polimorfismo.app;
 
-final public class PessoaFisica extends Pessoa {
+final public class PessoaFisica extends App {
     // atributos 
     public String nome;
     public String cpf;
@@ -14,7 +14,6 @@ final public class PessoaFisica extends Pessoa {
     }  
 
     public String cumprimentar() {              
-        return "Olá meu nome é " + this.nome +  " anos, nasci em " + this.dataNascimento + " meu CPF é " + this.cpf +  "moro em " + this.endereco + " meu telefone é " + this.telefone + " e meu e-mail é " + this.email + 
-        ".";
+        return "Olá meu nome é " + this.nome +  " anos, nasci em " + this.dataNascimento + " meu CPF é " + this.cpf +  "moro em " + this.endereco + " meu telefone é " + this.telefone + " e meu e-mail é " + this.email + ".";
     }
 }

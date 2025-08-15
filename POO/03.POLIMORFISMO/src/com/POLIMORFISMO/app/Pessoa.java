@@ -1,4 +1,4 @@
-package com.POLIMORFISMO.app;
+package com.polimorfismo.app;
 
 abstract public class Pessoa {
     // atributos
