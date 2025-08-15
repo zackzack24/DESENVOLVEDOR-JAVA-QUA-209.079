@@ -1,4 +1,4 @@
-package com.Regras.interfaces;
+package com.regras.interfaces;
 
 public interface IConta {   
     public void exibirDados();

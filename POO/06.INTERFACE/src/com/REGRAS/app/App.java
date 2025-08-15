@@ -1,7 +1,7 @@
-package com.Regras.app;
+package com.regras.app;
 
-import com.Regras.model.Conta;
-import com.Regras.interfaces.IConta;
+import com.regras.model.Conta;
+import com.regras.interfaces.IConta;
 import java.util.Scanner;
 
 public class App extends Conta {

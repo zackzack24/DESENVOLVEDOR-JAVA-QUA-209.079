@@ -1,6 +1,6 @@
-package com.Regras.model;
+package com.regras.model;
 
-import com.Regras.interfaces.IConta;
+import com.regras.interfaces.IConta;
 
 public class Conta implements IConta {
     private String titular;
