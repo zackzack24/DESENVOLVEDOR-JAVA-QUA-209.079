@@ -7,9 +7,9 @@ public class App {
     public static void main(String[] args) throws Exception {
          Scanner leia = new Scanner(System.in);
             
-         String nome, opcao, diagnostico;
-         double altura, peso, imc;
-         int saida = 0;
+            String nome, opcao, diagnostico;
+            double altura, peso, imc;
+            int saida = 0;
         
          do {
             System.out.println("1 Calcular IMC");

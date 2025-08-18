@@ -1,7 +1,6 @@
 package com.dialogos.app;
 
 import javax.swing.JOptionPane;
-
 import com.dialogos.model.Pessoa;
 
 public class App {

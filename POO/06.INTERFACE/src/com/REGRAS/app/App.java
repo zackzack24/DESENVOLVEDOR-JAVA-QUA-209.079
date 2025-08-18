@@ -1,8 +1,9 @@
 package com.regras.app;
 
+import java.util.Scanner;
 import com.regras.model.Conta;
 import com.regras.interfaces.IConta;
-import java.util.Scanner;
+
 
 public class App extends Conta {
     public static void main(String[] args) throws Exception {
