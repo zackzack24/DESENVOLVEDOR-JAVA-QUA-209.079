@@ -7,32 +7,32 @@ import com.atividade05.model.Combustiveis;
 public class App {
     public static void main(String[] args) throws Exception {
         Combustiveis combustivel = new Combustiveis(0, 0);
-        
-        String[] opcoes = {"Calcular preço", "Sair"};
-        Object opcao;
 
-        double precoCombustivel;
-         
+        String[] opcoes = {"Calcular Combustível", "Sair"};
+        Object opcao; 
         do {
-            JOptionPane.showInputDialog(
-                "Digite o preço da Gasolina",
-                "Digite o Preço do Etanol");   
-            if (opcao == "Calcular preço") {
-                Combustiveis.setCombustivel(Double.parseDouble(JOptionPane.showInputDialog
-                ("Informe o combustível")));
-                Combustiveis.setPreco(Double.parseDouble(JOptionPane.showInputDialog
-                ("Informe preço do combustível")));
-            }
+            opcao = JOptionPane.showInputDialog(
+                null, 
+                "Escolha uma opção", 
+                null, 
+                JOptionPane.QUESTION_MESSAGE, 
+                null, 
+                opcoes, 
+                opcoes[0]);
+            if (opcao == "Calcular Combustível") {
+            combustivel.setGasolina(Double.parseDouble(JOptionPane.showInputDialog("Informe o Valor da Gasolina").replace(",", ".")));
+            combustivel.setEtanol(Double.parseDouble(JOptionPane.showInputDialog("Informe o Valor do Etanol").replace(",", ".")));
 
+            // output
+            JOptionPane.showMessageDialog(
+                null, 
+                combustivel.calculo(), 
+                "Resultado", 
+                JOptionPane.INFORMATION_MESSAGE);
+                }
         } while (opcao != "Sair");
-    }        
-        
-}        
-
-
-
-
-
+    }
+}                         
         // to do 
         /*
          * Crie um app para verificar qual o melhor combustivel para um carro flex abastecer
