@@ -31,7 +31,6 @@ public class App {
         Object opcao;
         double valor;
 
-
         // input do titular da conta
         usuario.setNome(JOptionPane.showInputDialog("Informe o Nome do Titular da Conta"));
         usuario.setCpf(JOptionPane.showInputDialog("Informe o Cpf do Titular da Conta"));
