@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CSS</title>
+    <!-- Linkando o arquivo CSS -->
+     <link href="css/estilos.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body>
+    <h1>Formulário CSS</h1>
+    <hr />
+    <form method="">
+        <input type="text" placeholder="Nome" class="nome" />
+        <input type="text" placeholder="Sobrenome" class="sobrenome" />
+        <input type="tel" placeholder="Telefone: (00) 0000-0000" class="Telefone" />
+        <input type="email" placeholder="email: " class="email" />
+    <select> 
+        <option>Informe o Gênero</option>
+        <option>Masculino</option>
+        <option>Feminino</option>
+        <option>Prefiro não responder</option>
+    </select>
+        <input type="text" placeholder="CEP: 00.000-000" class="cep" />
+        <input type="text" placeholder="Cidade" class="cidade" />
+        <input type="text" placeholder="Endereço" class="endereço" />
+    <select>
+        <option name="escolaridade">Escolha uma opção...</option>
+            <option name="escolaridade">Nível Fundamental</option>
+            <option name="escolaridade">Nível Médio</option>
+            <option name="escolaridade">Nível Superior</option>
+            <option name="escolaridade">Pós-Graduação</option>
+            <option name="escolaridade">Mestrado</option>
+            <option name="escolaridade">Doutorado</option>
+    </select>
+    <br>
+    <!--PROFISSÃO-->
+    <label>Escolha a sua profissão</label><br />
+            <input type="checkbox" name="Matemático"><span> Matemático </span>            
+            <input type="checkbox" name="Agro Pecuarista"><span> Agro Pecuarista </span>
+            <input type="checkbox" name="Desenhista Industrial"><span> Desenhista Industrial </span>
+            <input type="checkbox" name="Nutricionista"><span> Nutricionista </span>
+            <input type="checkbox" name="Psicólogo"><span> Psicólogo </span>
+            <br> 
+            <input type="checkbox" name="Desenvolvedor"><span> Desenvolvedor </span>  
+            <input type="checkbox" name="Tech Lead"><span> Tech Lead </span>            
+            <input type="checkbox" name="Product Owner"><span> Product Owner </span>            
+            <input type="checkbox" name="Product Manager"><span> Product Manager </span>            
+            <label> Outros: </label> <input type="text" placeholder="Outros">
+        <br>
+    <!--CURSOS-->
+    <label>Escolha os cursos já feitos</label><br />
+            <input type="checkbox" name="Matemática"><span> Matemática </span>            
+            <input type="checkbox" name="Agro Pecuária"><span> Agro Pecuária </span>
+            <input type="checkbox" name="Desenho Industrial"><span> Desenho Industrial </span>
+            <input type="checkbox" name="Nutrição"><span> Nutrição </span>
+            <input type="checkbox" name="Coach e Psicologia Positiva"><span> Coach e Psicologia Positiva </span>
+            <br>
+            <input type="checkbox" name="Tecnologia"><span> Tecnologia </span>            
+            <input type="checkbox" name="Linguagem Java"><span> Linguagem Java </span>
+            <input type="checkbox" name="Assembly"><span> Assembly </span>
+            <input type="checkbox" name="Automação Industrial"><span> Automação Industrial </span>
+            <input type="checkbox" name="Computação"><span> Computação </span> 
+            <input type="checkbox" name="Operador de Computadores"><span> Operador de Computadores </span> 
+            <br>
+            <label> Outros: </label> <input type="text" placeholder="Outros">
+        <br>
+    <button type="submit">Cadastrar</button>
+    </form>
+
+</body>
+</html>
+
+<!-- Acrescentem
+ escolaridade
+ profissão
+ Cursos que já fez
+ -->
