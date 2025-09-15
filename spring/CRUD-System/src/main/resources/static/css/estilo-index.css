@@ -1,0 +1,26 @@
+/* Estilos gerais */
+body {
+    color: white;
+    background-color: #16161d;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.container .stl {
+    color: aliceblue;
+}
+
+.imagem1 img {
+    box-shadow: 5px 5px 20px #16161d;
+    border-radius: 20px;
+}
+
+.code-img {
+    display: flex;
+    justify-content: center;    
+}
