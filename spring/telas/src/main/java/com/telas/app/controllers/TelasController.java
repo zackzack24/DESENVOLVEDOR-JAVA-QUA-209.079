@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class TelasController {
-    @RequestMapping("home")
+    @RequestMapping("/")
     public String home() {
-        return "home";
+        return "index";
     }
-    @RequestMapping("cadastrar")
+    @RequestMapping("/cadastrar")
     public String cadastrar() {
         return "cadastrar";
     }
