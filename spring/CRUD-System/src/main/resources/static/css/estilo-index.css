@@ -18,9 +18,18 @@ h1 {
 .imagem1 img {
     box-shadow: 5px 5px 20px #16161d;
     border-radius: 20px;
+    display: center;
+
 }
 
 .code-img {
     display: flex;
     justify-content: center;    
+}
+
+.crud-img img {
+    box-shadow: 5px 5px 20px #16161d;
+    border-radius: 20px;
+    display: center;
+    width: 550px;
 }
