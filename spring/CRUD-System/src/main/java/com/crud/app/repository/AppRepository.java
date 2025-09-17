@@ -5,5 +5,6 @@ import com.crud.app.models.Pessoa;
 
 public interface AppRepository extends CrudRepository<Pessoa, 
 String> { // type:ignore
-    Pessoa findByIdPessoa(Long idPessoa);
+    Pessoa findByIdPessoa(long idPessoa);
+    Pessoa deleteByIdPessoa(long idPessoa);
 }

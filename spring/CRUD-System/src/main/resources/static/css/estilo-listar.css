@@ -1,100 +1,236 @@
-/* Estilos gerais */
-body {
-    color: white;
-    background-color: #16161d;
-    font-family: Arial, Helvetica, sans-serif;
+/* ===== ESTILO LISTAR - TEMA ESCURO MODERNO ===== */
+:root {
+    --primary: #6c42f5;
+    --secondary: #ff4e7d;
+    --accent: #2be2e7;
+    --dark-bg: #0f0f17;
+    --darker-bg: #090911;
+    --card-bg: #1a1a2e;
+    --text: #ffffff;
+    --text-muted: #b0b0b0;
 }
 
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--text);
+    background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 70%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+/* Efeito de partículas no fundo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 5px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* NAVBAR ESTILIZADA */
+.navbar {
+    background: rgba(10, 10, 20, 0.8) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1rem;
+}
+
+.navbar-brand img {
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 0 5px var(--primary));
+}
+
+.navbar-brand img:hover {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.nav-link {
+    color: var(--text) !important;
+    position: relative;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 80%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent) !important;
+    text-shadow: 0 0 10px rgba(43, 226, 231, 0.5);
+}
+
+/* HEADERS ESTILIZADOS */
 h1 {
     text-align: center;
-    margin-bottom: 30px;
-    color: white;
+    margin-bottom: 2rem;
+    color: var(--text);
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    padding-bottom: 1rem;
 }
 
-/* Container */
-.container .lista {
-    color: aliceblue;
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
 }
 
-/* Tabela geral */
-.table-bordered {
-    width: 10%;
+/* CONTAINERS */
+.container {
+    padding: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
-    background-color: #330000;
-    color: white;
-    border: 2px solid white;
-    border-radius: 25px;
-    overflow: hidden;
 }
 
-/* Cabeçalho da tabela */
-.table-light th {
-    width: 100%;
-    justify-items: center;
-    background-color: black;
-    color: white ;
+/* TABELAS ESTILIZADAS */
+.table-bordered {
     border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: var(--card-bg);
+    width: 100%;
 }
 
-/* Células da tabela */
+.table-light th {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 1.2rem 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .table-bordered td, .table-bordered th {
-    color: white ;
-    padding: 12px 16px;
-    border: 1px solid ;
-
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+    color: var(--text);
 }
 
-/* Linhas alternadas */
-.table-bordered tbody tr:nth-child(odd) {  
-    text-align: center;      
-    background-color: black;
-
+.table-bordered tbody tr:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .table-bordered tbody tr:nth-child(even) {
-    background-color: #000000;
-
+    background: rgba(0, 0, 0, 0.1);
 }
 
-/* === BOTÃO ALTERAR === */
+.table-bordered tbody tr:hover {
+    background: rgba(108, 66, 245, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* BOTÕES DE AÇÃO */
+.btn-alterar, .btn-excluir {
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
 .btn-alterar {
-    color: white;
-    background-color: #000000;
-    border: 3px solid white;
-    border-radius: 25px;
-    padding: 6px 14px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
 }
 
 .btn-alterar:hover {
-    background-color: rgb(180, 180, 180);
-    color: #000000;
-    border-color: #000000;
+    background: var(--accent);
+    color: black;
+    box-shadow: 0 0 15px rgba(43, 226, 231, 0.5);
+    transform: translateY(-2px);
 }
 
-/* === BOTÃO EXCLUIR === */
 .btn-excluir {
-    color: white;
-    background-color: #000000;
-    border: 3px solid white;
-    border-radius: 25px;
-    padding: 6px 14px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    background: transparent;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
 }
 
 .btn-excluir:hover {
-    background-color: rgb(180, 180, 180);
-    color: #000000;
-    border-color: #000000;
+    background: #ff6b6b;
+    color: black;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+    transform: translateY(-2px);
 }
 
-/* Responsividade */
-.table-responsive {    
-    border-radius: 25px;
-    overflow: auto;
-    margin-top: 20px;
+.btn-warning {
+    background: linear-gradient(90deg, #ff9a3d, #ff6b6b);
+}
+
+/* EFEITOS DE FOCO E DESTAQUE */
+hr {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    border: none;
+    margin: 2rem 0;
+    opacity: 0.5;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .table-responsive {
+        border-radius: 15px;
+    }
 }
