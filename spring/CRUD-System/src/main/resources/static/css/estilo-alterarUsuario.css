@@ -1,4 +1,4 @@
-/* ===== ESTILO LISTAR - TEMA ESCURO MODERNO ===== */
+/* ===== ESTILO CADASTRAR - TEMA ESCURO MODERNO ===== */
 :root {
     --primary: #6c42f5;
     --secondary: #ff4e7d;
@@ -129,86 +129,68 @@ h1::after {
     margin: 0 auto;
 }
 
-/* TABELAS ESTILIZADAS */
-.table-bordered {
-    border: none;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background: var(--card-bg);
-    width: 100%;
-}
-
-.table-light th {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    color: white;
-    border: none;
-    padding: 1.2rem 1.5rem;
-    font-weight: 600;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.table-bordered td, .table-bordered th {
+/* FORMULÁRIOS ESTILIZADOS */
+.input-group-text {
+    background: linear-gradient(90deg, var(--darker-bg), var(--card-bg));
+    color: var(--text);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1rem 1.5rem;
-    vertical-align: middle;
+    border-right: none;
+    font-weight: 500;
+}
+
+.form-control {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: none;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 0.25rem rgba(108, 66, 245, 0.25);
+    border-color: rgba(108, 66, 245, 0.5);
     color: var(--text);
 }
 
-.table-bordered tbody tr:nth-child(odd) {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.table-bordered tbody tr:nth-child(even) {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-.table-bordered tbody tr:hover {
-    background: rgba(108, 66, 245, 0.1);
-    transition: all 0.3s ease;
-}
-
-/* BOTÕES DE AÇÃO */
-.btn-alterar, .btn-excluir {
-    padding: 0.5rem 1.2rem;
+/* BOTÕES ESTILIZADOS */
+.btn {
+    padding: 0.7rem 1.5rem;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: none;
 }
 
-.btn-alterar {
-    background: transparent;
-    color: var(--accent);
-    border: 2px solid var(--accent);
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    transition: all 0.5s ease;
+    z-index: -1;
 }
 
-.btn-alterar:hover {
-    background: var(--accent);
-    color: black;
-    box-shadow: 0 0 15px rgba(43, 226, 231, 0.5);
-    transform: translateY(-2px);
+.btn:hover::before {
+    width: 100%;
 }
 
-.btn-excluir {
-    background: transparent;
-    color: #ff6b6b;
-    border: 2px solid #ff6b6b;
+.btn-primary {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
 }
 
-.btn-excluir:hover {
-    background: #ff6b6b;
-    color: black;
-    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
-    transform: translateY(-2px);
-}
-
-.btn-warning {
-    background: linear-gradient(90deg, #ff9a3d, #ff6b6b);
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* EFEITOS DE FOCO E DESTAQUE */
@@ -230,10 +212,8 @@ hr {
         padding: 1rem;
     }
     
-    .table-responsive {
-        border-radius: 15px;
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
 }
-
-/* CSS DO ALTERAR USUARIO */
-

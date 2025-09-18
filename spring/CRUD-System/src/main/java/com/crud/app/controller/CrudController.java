@@ -1,7 +1,5 @@
 package com.crud.app.controller;
 
-import java.lang.ProcessBuilder.Redirect;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -54,9 +52,9 @@ public class CrudController {
 
     // alterar
     @RequestMapping(value = "/alterarUsuario/{idPessoa}", method = RequestMethod.POST)
-    public String alterarUsuario(@Validated Pessoa usuario, BindingResult result,
-            RedirectAttributes atributes) {
-        return null;
+    public String alterarUsuario(@Validated Pessoa usuario, BindingResult result, RedirectAttributes atributes) {
+        csr.save(usuario);
+        return "redirect:/listar";
     }
 
     // excluir
@@ -72,6 +70,6 @@ public class CrudController {
     public String excluirUsuario(long idPessoa) {
         Pessoa usuario = csr.findByIdPessoa(idPessoa);
         csr.delete(usuario);
-        return "redirect:/listarUsuarios";
+        return "redirect:/listar";
     }
 }
