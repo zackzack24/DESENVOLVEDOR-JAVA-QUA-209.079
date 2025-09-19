@@ -8,7 +8,6 @@ public class Carros {
     private String ano;
     private Pessoa proprietario;
 
-
     public Carros(String fabricante, String modelo, String placa, String cor, String ano, Pessoa proprietario) {
         this.fabricante = fabricante;
         this.modelo = modelo;

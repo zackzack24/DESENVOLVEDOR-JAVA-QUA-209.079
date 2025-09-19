@@ -8,7 +8,6 @@ public class Pessoa {
     private String endereco;
     private String cnh; 
     
-
     public Pessoa(String nome, String cpf, String email, String telefone, String endereco, String cnh) {
         this.nome = nome;
         this.cpf = cpf;

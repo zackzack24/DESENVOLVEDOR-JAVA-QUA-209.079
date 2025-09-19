@@ -1,4 +1,4 @@
-    package com.atividade04.model;
+package com.atividade04.model;
 
 public class IMC {
     private double peso;
