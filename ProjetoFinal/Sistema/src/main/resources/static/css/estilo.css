@@ -1,0 +1,104 @@
+/* Estilo geral para o corpo da página */
+body {
+    background-color: #16161d; /* Cor de fundo suave para melhor leitura */
+    font-family: 'Segoe UI', Arial, sans-serif; /* Fonte moderna e legível */
+}
+
+/* Estilização da barra de navegação */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08); /* Sombra leve para destacar o menu */
+}
+
+.navbar-brand {
+    font-weight: bold; /* Destaca o nome do sistema */
+    letter-spacing: 1px; /* Espaçamento entre letras para elegância */
+}
+
+.nav-link {
+    transition: color 0.2s; /* Suaviza a mudança de cor ao passar o mouse */
+}
+
+.nav-link:hover {
+    color: #ffc107 !important; /* Cor amarela ao passar o mouse nos links do menu */
+}
+
+/* Container principal das páginas */
+.container {
+    background: #505050 ; /* Fundo verde escuro para destacar o conteúdo */
+    border-radius: 8px; /* Cantos arredondados para suavidade visual */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra leve para profundidade */
+    padding: 32px 24px; /* Espaçamento interno confortável */
+    margin-top: 32px; /* Distância do topo */
+}
+
+/* Títulos principais */
+h1, h2 {
+    color: whitesmoke; /* Cor escura para títulos, melhor contraste */
+    margin-bottom: 24px;
+}
+
+.container.mt-5 .text-light {
+    color: whitesmoke;
+}
+
+/* Estilo dos formulários */
+.form-label {
+    font-weight: 500; /* Destaca os rótulos dos campos */
+    color: whitesmoke;
+}
+
+.form-control {
+    border-radius: 6px; /* Cantos arredondados nos campos */
+    border: 1px solid #ced4da; /* Borda suave */
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Borda azul ao focar no campo */
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.15);
+}
+
+/* Botão principal */
+.btn-primary {
+    background-color: #007bff; /* Azul padrão Bootstrap */
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 10px 24px;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Tabela de listagem */
+.table {
+    margin-top: 24px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f2f6fc; /* Linhas alternadas com cor suave */
+}
+
+th {
+    background-color: #007bff; /* Cabeçalho da tabela azul */
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px 8px;
+    }
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+    .table {
+        font-size: 0.95rem;
+    }
+}

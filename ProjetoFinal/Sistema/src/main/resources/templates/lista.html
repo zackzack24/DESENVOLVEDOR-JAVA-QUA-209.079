@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://thymeleaf.org" xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout">
+<head>   
+    <meta name="author" content="ISAAC LUZ">    
+    <meta charset="UTF-8">
+    <title>Listar Pessoas Desaparecidas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+ 
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- favicon -->
+    <link href=" " rel="shortcut icon" type="image/png">
+
+    <!-- css externo -->
+    <link href="css/estilo.css" rel="stylesheet" type="text/css" media="all">        
+</head>
+
+<body>
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Desaparecidos</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="navbar-brand" href="/cadastro">Cadastrar Pessoa</a></li>
+                    <li class="nav-item"><a class="navbar-brand" href="/buscar">Buscar Pessoas</a></li>                    
+                    <li class="nav-item"><a class="navbar-brand" href="/lista">Listar Pessoas</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h2>Lista de Pessoas Desaparecidas</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>Data do Desaparecimento</th>
+                    <th>Local</th>
+                    <th>Características</th>
+                    <th>Encontrada?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Renderiza cada pessoa cadastrada -->
+                <tr th:each="pessoa : ${pessoas}">
+                    <td th:text="${pessoa.nome}"></td>
+                    <td th:text="${#dates.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${#dates.format(pessoa.dataDesaparecimento, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${pessoa.localDesaparecimento}"></td>
+                    <td th:text="${pessoa.caracteristicasFisicas}"></td>
+                    <td th:text="${pessoa.encontrada} ? 'Sim' : 'Não'"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
