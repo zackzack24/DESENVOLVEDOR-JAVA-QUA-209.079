@@ -1,13 +1,19 @@
 package com.Sistema.app.model;
 
-public class PessoaDesaparecida {
+import java.io.Serializable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-
-    // terminar tudo amanha
-
-
-
-    private Long id;
+@Entity
+public class PessoaDesaparecida implements Serializable {
+    // atributos
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long idPessoaDesaparecida;
     private String nomeCompleto;
     private String dataNascimento;
     private String dataDesaparecimento;
@@ -20,24 +26,7 @@ public class PessoaDesaparecida {
     public PessoaDesaparecida() {
     }
 
-    public PessoaDesaparecida(Long id, String nomeCompleto, String dataNascimento, String dataDesaparecimento,
-                              String localDesaparecimento, String caracteristicasFisicas, boolean encontrada) {
-        this.id = id;
-        this.nomeCompleto = nomeCompleto;
-        this.dataNascimento = dataNascimento;
-        this.dataDesaparecimento = dataDesaparecimento;
-        this.localDesaparecimento = localDesaparecimento;
-        this.caracteristicasFisicas = caracteristicasFisicas;
-        this.encontrada = encontrada;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    
 
     public String getNomeCompleto() {
         return nomeCompleto;
@@ -85,5 +74,17 @@ public class PessoaDesaparecida {
 
     public void setEncontrada(boolean encontrada) {
         this.encontrada = encontrada;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public long getIdPessoaDesaparecida() {
+        return idPessoaDesaparecida;
+    }
+
+    public void setIdPessoaDesaparecida(long idPessoaDesaparecida) {
+        this.idPessoaDesaparecida = idPessoaDesaparecida;
     }
 }

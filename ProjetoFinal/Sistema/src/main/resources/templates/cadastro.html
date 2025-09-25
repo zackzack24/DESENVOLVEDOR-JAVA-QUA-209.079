@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="https://thymeleaf.org" xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="pt-br">
 <head>
     <meta name="author" content="ISAAC LUZ">    
     <meta charset="UTF-8">
@@ -24,7 +24,7 @@
             <a class="navbar-brand" href="/">Desaparecidos</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="navbar-brand" href="/cadastro">Cadastrar Pessoa</a></li>
+                    <li class="nav-item"><a class="navbar-brand" href="/cadastro">Cadastrar Pessoas</a></li>
                     <li class="nav-item"><a class="navbar-brand" href="/buscar">Buscar Pessoas</a></li>                    
                     <li class="nav-item"><a class="navbar-brand" href="/lista">Listar Pessoas</a></li>
                 </ul>
@@ -33,14 +33,14 @@
     </nav>
     <div class="container mt-5">
         <h2>Cadastrar Pessoa Desaparecida</h2>
-        <form method="post" action="/cadastro" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="nomeCompleto" class="form-label">Digite o SEU Nome Completo</label>
                 <input type="text" class="form-control" id="SeuNomeCompleto" name="nomeCompleto" required>
             </div>            
             <div class="mb-3">
                 <label for="cpf" class="form-label">SEU CPF</label>
-                <input type="number" class="form-control" id="Seucpf" name="SeuCpf" required>
+                <input type="text number" class="form-control" id="Seucpf" name="SeuCpf" required>
             </div>            
             <div class="mb-3">
                 <label for="nomeCompleto" class="form-label">Nome Completo do Desaparecido</label>
@@ -77,5 +77,8 @@
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
 </body>
 </html>

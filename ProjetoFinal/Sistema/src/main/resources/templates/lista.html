@@ -24,7 +24,7 @@
             <a class="navbar-brand" href="/">Desaparecidos</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="navbar-brand" href="/cadastro">Cadastrar Pessoa</a></li>
+                    <li class="nav-item"><a class="navbar-brand" href="/cadastro">Cadastrar Pessoas</a></li>
                     <li class="nav-item"><a class="navbar-brand" href="/buscar">Buscar Pessoas</a></li>                    
                     <li class="nav-item"><a class="navbar-brand" href="/lista">Listar Pessoas</a></li>
                 </ul>
@@ -47,7 +47,7 @@
             <tbody>
                 <!-- Renderiza cada pessoa cadastrada -->
                 <tr th:each="pessoa : ${pessoas}">
-                    <td th:text="${pessoa.nome}"></td>
+                    <td th:text="${pessoa.nomeCompleto}"></td>
                     <td th:text="${#dates.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></td>
                     <td th:text="${#dates.format(pessoa.dataDesaparecimento, 'dd/MM/yyyy')}"></td>
                     <td th:text="${pessoa.localDesaparecimento}"></td>

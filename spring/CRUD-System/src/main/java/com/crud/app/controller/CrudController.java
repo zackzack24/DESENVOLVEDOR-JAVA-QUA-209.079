@@ -1,7 +1,7 @@
 package com.crud.app.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired; // ok
+import org.springframework.stereotype.Controller; // ok
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated; // feito
 import org.springframework.web.bind.annotation.PathVariable; // feito
@@ -34,6 +34,7 @@ public class CrudController {
         return "redirect:/";
     }
 
+    // FAZ AS PESSOAS SEREM LISTADAS
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("listar");
@@ -42,6 +43,7 @@ public class CrudController {
         return mv;
     }
 
+    // alterar get
     @RequestMapping(value = "/alterarUsuario/{idPessoa}", method = RequestMethod.GET)
     public ModelAndView alterarUsuario(@PathVariable("idPessoa") long idPessoa) {
         Pessoa usuario = csr.findByIdPessoa(idPessoa);
@@ -50,7 +52,7 @@ public class CrudController {
         return mv;
     }
 
-    // alterar
+    // alterar post
     @RequestMapping(value = "/alterarUsuario/{idPessoa}", method = RequestMethod.POST)
     public String alterarUsuario(@Validated Pessoa usuario, BindingResult result, RedirectAttributes atributes) {
         csr.save(usuario);
