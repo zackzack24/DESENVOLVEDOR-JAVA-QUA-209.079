@@ -39,10 +39,6 @@
                 <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" required>
             </div>
             <div class="mb-3">
-                <label for="dataNascimento" class="form-label">Data de Nascimento</label>
-                <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" required>
-            </div>
-            <div class="mb-3">
                 <label for="dataDesaparecimento" class="form-label">Data do Desaparecimento</label>
                 <input type="date" class="form-control" id="dataDesaparecimento" name="dataDesaparecimento" required>
             </div>
@@ -54,20 +50,35 @@
                 <label for="caracteristicasFisicas" class="form-label">Características Físicas</label>
                 <textarea class="form-control" id="caracteristicasFisicas" name="caracteristicasFisicas" rows="2" required></textarea>
             </div>
-            <div class="mb-3">
-                <label for="fotos" class="form-label">Fotos</label>
-                <input type="file" class="form-control" id="fotos" name="fotos" multiple accept="image/*">
+            <button type="submit" class="btn btn-primary">Buscar</button>
             </div>
-            <div class="mb-3">
-                <label for="roupas" class="form-label">Roupas no momento</label>
-                <input type="text" class="form-control" id="roupas" name="roupas">
-            </div>
-            <div class="mb-3">
-                <label for="boletimOcorrencia" class="form-label">Boletim de Ocorrência</label>
-                <input type="file" class="form-control" id="boletimOcorrencia" name="boletimOcorrencia" accept="application/pdf,image/*">
-            </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
+    </div>
+    <div class="container mt-5">
+        <h2>Resultados da Busca</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Data de Nascimento</th>
+                    <th scope="col">Data do Desaparecimento</th>
+                    <th scope="col">Local do Desaparecimento</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="pessoa : ${pessoas}">
+                    <td th:text="${pessoa.nomeCompleto}"></td>
+                    <td th:text="${#dates.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${#temporals.format(pessoa.dataDesaparecimento, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${pessoa.localDesaparecimento}"></td>
+                    <td>
+                        <a th:href="@{/editar/{id}(id=${pessoa.id})}" class="btn btn-warning btn-sm">Editar</a>
+                        <a th:href="@{/excluir/{id}(id=${pessoa.id})}" class="btn btn-danger btn-sm">Excluir</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

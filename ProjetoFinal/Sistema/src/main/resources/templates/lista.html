@@ -48,8 +48,8 @@
                 <!-- Renderiza cada pessoa cadastrada -->
                 <tr th:each="pessoa : ${pessoas}">
                     <td th:text="${pessoa.nomeCompleto}"></td>
-                    <td th:text="${#dates.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></td>
-                    <td th:text="${#dates.format(pessoa.dataDesaparecimento, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${#temporals.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${#temporals.format(pessoa.dataDesaparecimento, 'dd/MM/yyyy')}"></td>
                     <td th:text="${pessoa.localDesaparecimento}"></td>
                     <td th:text="${pessoa.caracteristicasFisicas}"></td>
                     <td th:text="${pessoa.encontrada} ? 'Sim' : 'Não'"></td>

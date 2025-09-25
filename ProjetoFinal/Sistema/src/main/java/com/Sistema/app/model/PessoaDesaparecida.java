@@ -1,6 +1,10 @@
 package com.Sistema.app.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+
+import org.springframework.cglib.core.Local;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,8 +19,8 @@ public class PessoaDesaparecida implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idPessoaDesaparecida;
     private String nomeCompleto;
-    private String dataNascimento;
-    private String dataDesaparecimento;
+    private LocalDate dataNascimento; // trocar de String para LocalDate
+    private LocalDate dataDesaparecimento; // trocar de String para LocalDate
     private String localDesaparecimento;
     private String caracteristicasFisicas;
     private boolean encontrada;
@@ -36,19 +40,19 @@ public class PessoaDesaparecida implements Serializable {
         this.nomeCompleto = nomeCompleto;
     }
 
-    public String getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getDataDesaparecimento() {
+    public LocalDate getDataDesaparecimento() {
         return dataDesaparecimento;
     }
 
-    public void setDataDesaparecimento(String dataDesaparecimento) {
+    public void setDataDesaparecimento(LocalDate dataDesaparecimento) {
         this.dataDesaparecimento = dataDesaparecimento;
     }
 
