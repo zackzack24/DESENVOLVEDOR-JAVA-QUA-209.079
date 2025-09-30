@@ -1,5 +1,5 @@
 <div align="center">
-  <img src='https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white' width=150 />
+  <img src='https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white' max-width=150 />
   <img src='https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white' width=150 />
   <img src='https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white' width=150 />
  </a>
