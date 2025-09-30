@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="https://thymeleaf.org" xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
-    <meta name="author" content="ISAAC LUZ">    
+    <meta name="author" content="ISAAC LUZ">
     <meta charset="UTF-8">
     <title>Sistema de Cadastro de Pessoas Desaparecidas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -11,7 +12,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <!-- favicon -->
-    <link href=" " rel="shortcut icon" type="image/png">
+    <link href="img/missing.avif" rel="shortcut icon" type="image/png">
 
     <!-- css externo -->
     <link href="css/estilo.css" rel="stylesheet" type="text/css" media="all">
@@ -21,11 +22,14 @@
     <!-- nav bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Desaparecidos</a>
+            <a class="navbar-brand" href="/">
+                <img src="img/alert.gif" alt="Icon">
+                Desaparecidos
+            </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="navbar-brand" href="/cadastro">Cadastrar Pessoas</a></li>
-                    <li class="nav-item"><a class="navbar-brand" href="/buscar">Buscar Pessoas</a></li>                    
+                    <li class="nav-item"><a class="navbar-brand" href="/buscar">Buscar Pessoas</a></li>
                     <li class="nav-item"><a class="navbar-brand" href="/lista">Listar Pessoas</a></li>
                 </ul>
             </div>
@@ -34,8 +38,14 @@
 
     <div class="container mt-5">
         <h1>Bem-vindo ao Sistema de Cadastro de Pessoas Desaparecidas</h1>
-        <p class="text-light">Utilize o menu na aba "Cadastrar Pessoas" para cadastrar ou buscar pessoas desaparecidas.</p>
+        <p class="text-light">Utilize o menu na aba "Cadastrar Pessoas" para cadastrar ou buscar pessoas desaparecidas.
+        </p>
     </div>
+
+    <!-- <div class="container mt-5">
+        <h2>Sobre o Sistema</h2>
+        <p class="text-light">Este sistema foi desenvolvido para ajudar na localização de pessoas desaparecidas. Você pode cadastrar informações detalhadas sobre a pessoa desaparecida, incluindo características físicas e local do desaparecimento.</p>
+    </div> -->
 
 </body>
 

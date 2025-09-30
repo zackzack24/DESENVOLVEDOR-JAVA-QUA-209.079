@@ -18,10 +18,13 @@
 </head>
 
 <body>
-    <!-- nav bar -->
+     <!-- nav bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Desaparecidos</a>
+        <div class="container-fluid">        
+            <a class="navbar-brand" href="/">
+                <img src="img/alert.gif" alt="Icon" >
+                Desaparecidos
+            </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="navbar-brand" href="/cadastro">Cadastrar Pessoas</a></li>
@@ -46,8 +49,9 @@
             </thead>
             <tbody>
                 <!-- Renderiza cada pessoa cadastrada -->
-                <tr th:each="pessoa : ${pessoas}">
-                    <td th:text="${pessoa.nomeCompleto}"></td>
+                    <tr th:each="pessoa : ${pessoas}">
+                    <!-- <td th:text="${pessoa.nomeCompleto}"></td> -->
+                    <td th:text="${pessoa.nomeCompletoCadastro}"></td>
                     <td th:text="${#temporals.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></td>
                     <td th:text="${#temporals.format(pessoa.dataDesaparecimento, 'dd/MM/yyyy')}"></td>
                     <td th:text="${pessoa.localDesaparecimento}"></td>

@@ -19,6 +19,10 @@ public class DataConfig {
         dataSource.setUsername("root");
         dataSource.setPassword("");
 
+        // // como usar o db em casa 
+        // istalar com mysqlserver e usar uma senha no meu root
+        // dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        // dataSource.setUrl("jdbc:mysql://localhost:3306/db_sistema");
         return dataSource;            
     }
 

@@ -20,8 +20,11 @@
 <body>
     <!-- nav bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Desaparecidos</a>
+        <div class="container-fluid">        
+            <a class="navbar-brand" href="/">
+                <img src="img/alert.gif" alt="Icon" >
+                Desaparecidos
+            </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="navbar-brand" href="/cadastro">Cadastrar Pessoas</a></li>
@@ -35,16 +38,17 @@
         <h2>Cadastrar Pessoa Desaparecida</h2>
         <form method="post" enctype="multipart/form-data">
             <div class="mb-3">
-                <label for="nomeCompleto" class="form-label">Digite o SEU Nome Completo</label>
-                <input type="text" class="form-control" id="SeuNomeCompleto" name="nomeCompleto" required>
+                <label for="SeuNomeCompleto" class="form-label">Digite o SEU Nome Completo</label>
+                <input type="text" class="form-control" id="SeuNomeCompleto" name="SeuNomeCompleto" required>
             </div>            
             <div class="mb-3">
-                <label for="cpf" class="form-label">SEU CPF</label>
-                <input type="text number" class="form-control" id="Seucpf" name="SeuCpf" required>
-            </div>            
+                <label for="SeuCpf" class="form-label">SEU CPF</label>
+                <input type="text" class="form-control" id="SeuCpf" name="SeuCpf" required>
+            </div>      
+
             <div class="mb-3">
-                <label for="nomeCompleto" class="form-label">Nome Completo do Desaparecido</label>
-                <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" required>
+                <label for="nomeCompletoCadastro" class="form-label">Nome Completo do Desaparecido</label>
+                <input type="text" class="form-control" id="nomeCompletoCadastro" name="nomeCompletoCadastro" required>
             </div>
             <div class="mb-3">
                 <label for="dataNascimento" class="form-label">Data de Nascimento</label>
@@ -79,6 +83,13 @@
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script> 
+    $(document).ready(function(){
+        $('#SeuCpf').inputmask('999.999.999-99');
+    });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>

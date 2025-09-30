@@ -14,11 +14,12 @@ import jakarta.persistence.Id;
 public class PessoaDesaparecida implements Serializable {
     // atributos
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idPessoaDesaparecida;
     private String nomeCompleto;
+    private String nomeCompletoCadastro; // adicionado para o nome do desaparecido
     private LocalDate dataNascimento; // trocar de String para LocalDate
     private LocalDate dataDesaparecimento; // trocar de String para LocalDate
     private String localDesaparecimento;
@@ -29,8 +30,6 @@ public class PessoaDesaparecida implements Serializable {
 
     public PessoaDesaparecida() {
     }
-
-    
 
     public String getNomeCompleto() {
         return nomeCompleto;
@@ -90,5 +89,13 @@ public class PessoaDesaparecida implements Serializable {
 
     public void setIdPessoaDesaparecida(long idPessoaDesaparecida) {
         this.idPessoaDesaparecida = idPessoaDesaparecida;
+    }
+
+    public String getNomeCompletoCadastro() {
+        return nomeCompletoCadastro;
+    }
+
+    public void setNomeCompletoCadastro(String setNomeCompletoCadastro) {
+        this.nomeCompletoCadastro = setNomeCompletoCadastro;
     }
 }
