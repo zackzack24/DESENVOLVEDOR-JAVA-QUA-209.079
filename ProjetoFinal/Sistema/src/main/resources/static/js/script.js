@@ -5,6 +5,43 @@ const form = document.querySelector("form");
 // const cepMask = document.querySelector('#cep');
 // Não está sendo usado mas pode ser adicionado posteriormente
 
+// FUNÇÃO PARA BUSCAR AUTOMÁTICO
+const pesquisa = document.querySelector("#pesquisa");
+const valoresPesquisa = document.querySelectorAll( 'table tbody tr');
+const resultadoPesquisa = document.querySelector("#resultado-pesquisa"); 
+
+// função em si
+pesquisa.addEventListener("input", function() {
+    const pesquisa = pesquisa.value.toLowerCase();
+    let html = "";
+    valoresPesquisa.forEach(linha => { 
+        const pesquisados = linha.cells[0].textContent.toLowerCase();
+        if (pesquisados.includes(termo)){
+            html += `<tr>${linha.innerHTML}</tr>`;
+        }
+        linha.style.display = pesquisados.includes(pesquisa) ? "" : "none";
+    });
+    resultadoPesquisa.innerHTML = `<table>{html}</table>`;
+});
+
+// pesquisa.addEventListener("input", function() {
+//     result.innerHTML = pesquisa.value();    
+// });
+
+// valoresPesquisa.forEach(linha => {
+//     const Pesquisa = linha.cells[0].textContent; //.toLowerCase()
+//     const valoresPesquisa = linha.cells[1].textContent; //.toLowerCase()
+// });
+
+// // testando forma do copilot
+
+// pesquisa.addEventListener("inout" , function() {
+//     const 
+
+
+    
+
+
 const btn = () => {
     let nome  = document.querySelector('#nome').value;
     let cpf  = document.querySelector('#SeuCpf').value;    

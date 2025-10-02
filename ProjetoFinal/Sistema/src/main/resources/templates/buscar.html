@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="https://thymeleaf.org" xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout">
-<head>   
-    <meta name="author" content="ISAAC LUZ">    
+
+<head>
+    <meta name="author" content="ISAAC LUZ">
     <meta charset="UTF-8">
     <title>Buscar Pessoas Desaparecidas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
- 
+
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -14,21 +15,21 @@
     <link href=" " rel="shortcut icon" type="image/png">
 
     <!-- css externo -->
-    <link href="css/estilo.css" rel="stylesheet" type="text/css" media="all">        
+    <link href="css/estilo.css" rel="stylesheet" type="text/css" media="all">
 </head>
 
 <body>
     <!-- nav bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">        
+        <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <img src="img/alert.gif" alt="Icon" >
+                <img src="img/alert.gif" alt="Icon">
                 Desaparecidos
             </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="navbar-brand" href="/cadastro">Cadastrar Pessoas</a></li>
-                    <li class="nav-item"><a class="navbar-brand" href="/buscar">Buscar Pessoas</a></li>                    
+                    <li class="nav-item"><a class="navbar-brand" href="/buscar">Buscar Pessoas</a></li>
                     <li class="nav-item"><a class="navbar-brand" href="/lista">Listar Pessoas</a></li>
                 </ul>
             </div>
@@ -36,52 +37,60 @@
     </nav>
     <div class="container mt-5">
         <h2>Buscar Pessoas Desaparecidas</h2>
-        <form method="post" action="/buscar" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="nomeCompleto" class="form-label">Nome Completo</label>
-                <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" required>
-            </div>
-            <div class="mb-3">
-                <label for="dataDesaparecimento" class="form-label">Data do Desaparecimento</label>
-                <input type="date" class="form-control" id="dataDesaparecimento" name="dataDesaparecimento" required>
-            </div>
-            <div class="mb-3">
-                <label for="localDesaparecimento" class="form-label">Local do Desaparecimento</label>
-                <input type="text" class="form-control" id="localDesaparecimento" name="localDesaparecimento" required>
-            </div>
-            <div class="mb-3">
+        <div id="pesquisa" name="pesquisa" input-type="text">
+            <form method="post" action="/buscar" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="nomeCompleto" class="form-label">Nome Completo</label>
+                    <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" required>
+                </div>
+                <div class="mb-3">
+                    <label for="dataDesaparecimento" class="form-label">Data do Desaparecimento</label>
+                    <input type="date" class="form-control" id="dataDesaparecimento" name="dataDesaparecimento"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="localDesaparecimento" class="form-label">Local do Desaparecimento</label>
+                    <input type="text" class="form-control" id="localDesaparecimento" name="localDesaparecimento"
+                        required>
+                </div>
+                <!--  <div class="mb-3">
                 <label for="caracteristicasFisicas" class="form-label">Características Físicas</label>
                 <textarea class="form-control" id="caracteristicasFisicas" name="caracteristicasFisicas" rows="2" required></textarea>
-            </div>
+            </div> 
             <button type="submit" class="btn btn-primary">Buscar</button>
-            </div>
+            </div> -->
+        </div>
         </form>
     </div>
     <div class="container mt-5">
         <h2>Resultados da Busca</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Data de Nascimento</th>
-                    <th scope="col">Data do Desaparecimento</th>
-                    <th scope="col">Local do Desaparecimento</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="pessoa : ${pessoas}">
-                    <td th:text="${pessoa.nomeCompleto}"></td>
-                    <td th:text="${#dates.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></td>
-                    <td th:text="${#temporals.format(pessoa.dataDesaparecimento, 'dd/MM/yyyy')}"></td>
-                    <td th:text="${pessoa.localDesaparecimento}"></td>
-                    <td>
-                        <a th:href="@{/editar/{id}(id=${pessoa.id})}" class="btn btn-warning btn-sm">Editar</a>
-                        <a th:href="@{/excluir/{id}(id=${pessoa.id})}" class="btn btn-danger btn-sm">Excluir</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <div id="valoresPesquisa" name="valoresPesquisa" input-type="text">
+            <table class="table">
+                <div id="resultadoPesquisa" name="resultadoPesquisa" input-type="text">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <!-- <th scope="col">Data de Nascimento</th> -->
+                            <th scope="col">Data do Desaparecimento</th>
+                            <th scope="col">Local do Desaparecimento</th>
+                            <!-- <th scope="col">Ações</th> -->
+                        </tr>
+                    </thead>
+                </div>
+                <tbody>
+                    <tr th:each="pessoa : ${pessoas}">
+                        <td th:text="${pessoa.nomeCompleto}"></td>
+                        <!-- <td th:text="${#dates.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></td> -->
+                        <td th:text="${#temporals.format(pessoa.dataDesaparecimento, 'dd/MM/yyyy')}"></td>
+                        <td th:text="${pessoa.localDesaparecimento}"></td>
+                        <td>
+                            <!-- <a th:href="@{/editar/{id}(id=${pessoa.id})}" class="btn btn-warning btn-sm">Editar</a>
+                            <a th:href="@{/excluir/{id}(id=${pessoa.id})}" class="btn btn-danger btn-sm">Excluir</a> -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 </body>
+
 </html>
