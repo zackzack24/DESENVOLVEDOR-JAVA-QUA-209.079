@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta name="author" content="ISAAC LUZ">    
+    <meta name="author" content="ISAAC LUZ">
     <meta charset="UTF-8">
     <title>Cadastrar Pessoa Desaparecida</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -20,15 +21,15 @@
 <body>
     <!-- nav bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">        
+        <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <img src="img/alert.gif" alt="Icon" >
+                <img src="img/alert.gif" alt="Icon">
                 Desaparecidos
             </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="navbar-brand" href="/cadastro">Cadastrar Pessoas</a></li>
-                    <li class="nav-item"><a class="navbar-brand" href="/buscar">Buscar Pessoas</a></li>                    
+                    <li class="nav-item"><a class="navbar-brand" href="/buscar">Buscar Pessoas</a></li>
                     <li class="nav-item"><a class="navbar-brand" href="/lista">Listar Pessoas</a></li>
                 </ul>
             </div>
@@ -40,11 +41,11 @@
             <div class="mb-3">
                 <label for="SeuNomeCompleto" class="form-label">Digite o SEU Nome Completo</label>
                 <input type="text" class="form-control" id="SeuNomeCompleto" name="SeuNomeCompleto" required>
-            </div>            
+            </div>
             <div class="mb-3">
                 <label for="SeuCpf" class="form-label">SEU CPF</label>
                 <input type="text" class="form-control" id="SeuCpf" name="SeuCpf" required>
-            </div>      
+            </div>
 
             <div class="mb-3">
                 <label for="nomeCompletoCadastro" class="form-label">Nome Completo do Desaparecido</label>
@@ -64,7 +65,8 @@
             </div>
             <div class="mb-3">
                 <label for="caracteristicasFisicas" class="form-label">Características Físicas</label>
-                <textarea class="form-control" id="caracteristicasFisicas" name="caracteristicasFisicas" rows="2" required></textarea>
+                <textarea class="form-control" id="caracteristicasFisicas" name="caracteristicasFisicas" rows="2"
+                    required></textarea>
             </div>
             <div class="mb-3">
                 <label for="roupas" class="form-label">Roupas no momento</label>
@@ -73,10 +75,11 @@
             <div class="mb-3">
                 <label for="fotos" class="form-label">Fotos</label>
                 <input type="file" class="form-control" id="fotos" name="fotos" multiple accept="image/*">
-            </div>            
+            </div>
             <div class="mb-3">
                 <label for="boletimOcorrencia" class="form-label">Boletim de Ocorrência</label>
-                <input type="file" class="form-control" id="boletimOcorrencia" name="boletimOcorrencia" accept="application/pdf,image/*">
+                <input type="file" class="form-control" id="boletimOcorrencia" name="boletimOcorrencia"
+                    accept="application/pdf,image/*">
             </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
@@ -85,11 +88,12 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script> 
-    $(document).ready(function(){
-        $('#SeuCpf').inputmask('999.999.999-99');
-    });
+    <script>
+        $(document).ready(function () {
+            $('#SeuCpf').inputmask('999.999.999-99');
+        });
     </script>
     <script src="js/script.js"></script>
 </body>
+
 </html>

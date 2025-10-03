@@ -8,4 +8,6 @@ public interface AppRepository extends CrudRepository<PessoaDesaparecida,Long> {
     PessoaDesaparecida findById(long idPessoaDesaparecida);
     PessoaDesaparecida deleteById(long idPessoaDesaparecida);
 
+    PessoaDesaparecida findByName(String PessoaDesaparecida);
+
 }

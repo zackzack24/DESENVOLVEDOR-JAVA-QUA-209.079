@@ -7,22 +7,34 @@ const form = document.querySelector("form");
 
 // FUNÇÃO PARA BUSCAR AUTOMÁTICO
 const pesquisa = document.querySelector("#pesquisa");
-const valoresPesquisa = document.querySelectorAll( 'table tbody tr');
+const valoresPesquisa = document.querySelectorAll( "table tbody tr");
 const resultadoPesquisa = document.querySelector("#resultado-pesquisa"); 
 
 // função em si
+
 pesquisa.addEventListener("input", function() {
-    const pesquisa = pesquisa.value.toLowerCase();
-    let html = "";
+    const termo = pesquisa.value.toLowerCase();
+    // let html = "";
     valoresPesquisa.forEach(linha => { 
-        const pesquisados = linha.cells[0].textContent.toLowerCase();
+        const textoCelula = linha.cells[0].textContent.toLowerCase();
         if (pesquisados.includes(termo)){
             html += `<tr>${linha.innerHTML}</tr>`;
         }
-        linha.style.display = pesquisados.includes(pesquisa) ? "" : "none";
+        linha.style.display = textoCelula.includes(pesquisa) ? "" : "none";
     });
-    resultadoPesquisa.innerHTML = `<table>{html}</table>`;
+    resultadoPesquisa.innerHTML = `<table>{$html}</table>`;
 });
+
+// pesquisa.addEventListener("input", function () {
+//     const termo = pesquisa.value.toLowerCase();
+
+//     valoresPesquisa.forEach(linha => {
+//         const textoCelula = linha.cells[0].textContent.toLowerCase();
+//         linha.style.display = textoCelula.includes(termo) ? "" : "none";
+//     });
+// })
+
+
 
 // pesquisa.addEventListener("input", function() {
 //     result.innerHTML = pesquisa.value();    

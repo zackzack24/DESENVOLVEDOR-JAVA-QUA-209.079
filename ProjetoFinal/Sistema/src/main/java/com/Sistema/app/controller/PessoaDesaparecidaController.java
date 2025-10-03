@@ -56,7 +56,7 @@ public class PessoaDesaparecidaController {
     // listar pessoas desaparecidas
     @RequestMapping(value = "/lista", method = RequestMethod.GET)
     public ModelAndView listar() {
-        ModelAndView mv = new ModelAndView("lista");
+        ModelAndView mv = new ModelAndView("/lista");
         Iterable<PessoaDesaparecida> pessoas = appRepository.findAll();
         mv.addObject("pessoas", pessoas);
         return mv;
@@ -81,6 +81,7 @@ public class PessoaDesaparecidaController {
         appRepository.save(pessoa);
         return "redirect:/lista"; // Redireciona para a lista após a alteração
     }
+
     // FIM DOS METODOS DE ALTERAR PESSOA
 
     // método para excluir pessoa
@@ -91,3 +92,5 @@ public class PessoaDesaparecidaController {
     }
 
 }
+
+
