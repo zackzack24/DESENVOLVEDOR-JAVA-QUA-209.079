@@ -26,7 +26,6 @@ public class PessoaDesaparecida implements Serializable {
     private String caracteristicasFisicas;
     private boolean encontrada;
 
-    
     // Construtores, getters e setters
 
     public PessoaDesaparecida() {

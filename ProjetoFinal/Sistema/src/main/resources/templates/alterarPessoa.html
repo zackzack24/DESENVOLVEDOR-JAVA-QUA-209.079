@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+      <meta name="author" content="ISAAC LUZ">
+      <meta charset="UTF-8">
+      <title>Alterar Pessoa Desaparecida</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+      <link th:href="@{/img/missing.avif}" rel="shortcut icon" type="image/png">
+      <link th:href="@{/css/estilo.css}" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body>
+      <!-- nav bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+              <a class="navbar-brand" th:href="@{/}">
+                  <img th:src="@{/img/alert.gif}" alt="Icon" style="height: 30px; margin-right: 10px;">
+                  Página Inicial
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                          <a class="navbar-brand" th:href="@{/cadastro}">Cadastrar Pessoas</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+
+      <div class="container mt-5">
+            <h1 class="text-light">Alterar Pessoa Desaparecida</h1>
+            <p class="text-light">Atualize os dados da pessoa desaparecida no sistema.</p>
+
+            <!-- Mensagem de Sucesso -->
+            <div th:if="${mensagem}" class="alert alert-success alert-dismissible fade show" role="alert">
+                  <span th:text="${mensagem}"></span>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+
+            <form method="post" th:action="@{/alterarPessoa}" th:object="${pessoa}">
+
+                  <!-- Campo oculto para o ID -->
+                  <input type="hidden" th:field="*{idPessoaDesaparecida}" />
+
+                  <!-- Dados do Desaparecido -->
+                  <div class="mb-4">
+                        <h3 class="text-light">Dados da Pessoa Desaparecida</h3>
+
+                        <div class="row">
+                              <div class="col-md-6 mb-3">
+                                    <label for="nomeCompletoCadastro" class="form-label text-light">Nome
+                                          Completo</label>
+                                    <input type="text" class="form-control" id="nomeCompletoCadastro"
+                                          th:field="*{nomeCompletoCadastro}" required>
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                    <label for="dataNascimento" class="form-label text-light">Data de Nascimento</label>
+                                    <input type="date" class="form-control" id="dataNascimento"
+                                          th:field="*{dataNascimento}" required>
+                              </div>
+                        </div>
+
+                        <div class="row">
+                              <div class="col-md-6 mb-3">
+                                    <label for="dataDesaparecimento" class="form-label text-light">Data do
+                                          Desaparecimento</label>
+                                    <input type="date" class="form-control" id="dataDesaparecimento"
+                                          th:field="*{dataDesaparecimento}" required>
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                    <label for="localDesaparecimento" class="form-label text-light">Local do
+                                          Desaparecimento</label>
+                                    <input type="text" class="form-control" id="localDesaparecimento"
+                                          th:field="*{localDesaparecimento}" required>
+                              </div>
+                        </div>
+
+                        <div class="mb-3">
+                              <label for="caracteristicasFisicas" class="form-label text-light">Características
+                                    Físicas</label>
+                              <textarea class="form-control" id="caracteristicasFisicas"
+                                    th:field="*{caracteristicasFisicas}" rows="3" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                              <label class="form-label text-light">Status</label>
+                              <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="encontrada"
+                                          th:checked="*{encontrada}">
+                                    <label class="form-check-label text-light" for="encontrada">
+                                          Pessoa encontrada?
+                                    </label>
+                              </div>
+                        </div>
+                  </div>
+
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a th:href="@{/}" class="btn btn-secondary me-md-2">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Atualizar Cadastro</button>
+                  </div>
+            </form>
+      </div>
+
+      <!-- Scripts -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+<!-- terminar a partir do que acontece quando apertamos no alterar -->

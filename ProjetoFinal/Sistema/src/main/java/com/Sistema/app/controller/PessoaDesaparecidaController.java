@@ -1,23 +1,20 @@
 package com.Sistema.app.controller;
 
 import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired; // ok
-import org.springframework.stereotype.Controller; // ok 
-import org.springframework.validation.BindingResult; // binding result 
-import org.springframework.validation.annotation.Validated; // ok
-import org.springframework.web.bind.annotation.RequestMapping; // ok
-import org.springframework.web.bind.annotation.RequestMethod; // ok
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes; // ok
-// import org.springframework.web.bind.annotation.RequestParam; // request param
-import org.springframework.web.bind.annotation.PathVariable; // path variable // ok
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.Sistema.app.model.PessoaDesaparecida;
 import com.Sistema.app.repository.AppRepository;
 
 @Controller
 public class PessoaDesaparecidaController {
+
     @Autowired
     private AppRepository appRepository;
 
@@ -26,15 +23,15 @@ public class PessoaDesaparecidaController {
         return "index";
     }
 
-    // @RequestMapping("/")
-    // public String cadastro() {
-    // return "cadastro";
+    // @RequestMapping("/lista")
+    // public String lista() {
+    //     return "lista";
     // }
 
-    @RequestMapping("/lista")
-    public String lista() {
-        return "lista";
-    }
+    @RequestMapping("/index")
+    public String redirectToIndex() {
+        return "redirect:/";
+    }    
 
     @RequestMapping("/buscar")
     public String buscar() {
@@ -47,50 +44,74 @@ public class PessoaDesaparecidaController {
     }
 
     @RequestMapping(value = "/cadastro", method = RequestMethod.POST)
-    public String cadastro(PessoaDesaparecida pessoa) {
-        // Lógica para salvar a pessoa desaparecida no repositório
+    public String cadastro(PessoaDesaparecida pessoa, RedirectAttributes attributes) {
+        // Garantir que o campo encontrada comece como false
+        pessoa.setEncontrada(false);
+        // Se você tem dois campos de nome, copie um para o outro
+        if (pessoa.getNomeCompletoCadastro() != null) {
+            pessoa.setNomeCompleto(pessoa.getNomeCompletoCadastro());
+        }
         appRepository.save(pessoa);
-        return "redirect:/lista"; // Redireciona para a lista após o cadastro
+        attributes.addFlashAttribute("mensagem", "Pessoa cadastrada com sucesso!");
+        return "redirect:/index";
     }
 
-    // listar pessoas desaparecidas
-    @RequestMapping(value = "/lista", method = RequestMethod.GET)
+    // LISTAR PESSOAS
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView listar() {
-        ModelAndView mv = new ModelAndView("/lista");
+        ModelAndView mv = new ModelAndView("index");
         Iterable<PessoaDesaparecida> pessoas = appRepository.findAll();
         mv.addObject("pessoas", pessoas);
         return mv;
-        // Lógica para obter a lista de pessoas desaparecidas do repositório
-        // List<PessoaDesaparecida> pessoas = appRepository.findAll();
-        // mv.addObject("pessoas", pessoas);
     }
 
-    // método para alterar pessoa ABAIXO, ainda não fiz o html
-
+    // MÉTODO PARA ALTERAR PESSOA - CORRIGIDO
     @RequestMapping(value = "/alterarPessoa/{idPessoaDesaparecida}", method = RequestMethod.GET)
     public ModelAndView alterarPessoa(@PathVariable("idPessoaDesaparecida") long idPessoaDesaparecida) {
-        PessoaDesaparecida pessoa = appRepository.findById(idPessoaDesaparecida);
-        ModelAndView mv = new ModelAndView("AlterarPessoaDesaparecida");
-        mv.addObject("pessoa", pessoa);
+        ModelAndView mv = new ModelAndView("alterarPessoa"); // ← Deve apontar para "alterarPessoa"
+        Optional<PessoaDesaparecida> pessoaOpt = appRepository.findById(idPessoaDesaparecida);
+
+        if (pessoaOpt.isPresent()) {
+            mv.addObject("pessoa", pessoaOpt.get());
+        } else {
+            return new ModelAndView("redirect:/index");
+        }
         return mv;
     }
+    // @RequestMapping(value = "/alterarPessoa/{idPessoaDesaparecida}", method =
+    // RequestMethod.GET)
+    // public ModelAndView alterarPessoa(@PathVariable("idPessoaDesaparecida") long
+    // idPessoaDesaparecida) {
+    // ModelAndView mv = new ModelAndView("alterarPessoa");
+    // Optional<PessoaDesaparecida> pessoaOpt =
+    // appRepository.findById(idPessoaDesaparecida);
 
-    @RequestMapping(value = "/alterarPessoa/{idPessoaDesaparecida}", method = RequestMethod.POST)
-    public String alterarPessoa(@Validated PessoaDesaparecida pessoa, BindingResult result,
-            RedirectAttributes atributes) {
+    // if (pessoaOpt.isPresent()) {
+    // mv.addObject("pessoa", pessoaOpt.get());
+    // } else {
+    // // Se não encontrar, redireciona para a lista
+    // return new ModelAndView("redirect:/index");
+    // }
+    // return mv;
+    // }
+
+    @RequestMapping(value = "/alterarPessoa", method = RequestMethod.POST)
+    public String alterarPessoa(PessoaDesaparecida pessoa, RedirectAttributes attributes) {
+        // Manter a consistência entre os dois campos de nome
+        if (pessoa.getNomeCompletoCadastro() != null) {
+            pessoa.setNomeCompleto(pessoa.getNomeCompletoCadastro());
+        }
         appRepository.save(pessoa);
-        return "redirect:/lista"; // Redireciona para a lista após a alteração
+        attributes.addFlashAttribute("mensagem", "Pessoa atualizada com sucesso!");
+        return "redirect:/index";
     }
 
-    // FIM DOS METODOS DE ALTERAR PESSOA
-
-    // método para excluir pessoa
-    @RequestMapping(value = "/excluirPessoa/{idPessoaDesaparecida}", method = RequestMethod.POST)
-    public String excluirPessoa(@PathVariable("idPessoaDesaparecida") Long idPessoaDesaparecida) {
+    // MÉTODO PARA EXCLUIR PESSOA
+    @RequestMapping(value = "/excluirPessoa/{idPessoaDesaparecida}", method = RequestMethod.GET)
+    public String excluirPessoa(@PathVariable("idPessoaDesaparecida") Long idPessoaDesaparecida,
+            RedirectAttributes attributes) {
         appRepository.deleteById(idPessoaDesaparecida);
-        return "redirect:/lista"; // Redireciona para a lista após a exclusão
+        attributes.addFlashAttribute("mensagem", "Pessoa excluída com sucesso!");
+        return "redirect:/index";
     }
-
 }
-
-
