@@ -4,5 +4,6 @@
         ""
     ],
     "liveServer.settings.port": 5501,
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+    "editor.defaultFoldingRangeProvider": "vscjava.vscode-java-pack"
 }
