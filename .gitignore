@@ -1,0 +1,55 @@
+# =============================================
+# .gitignore — Repositório Java / Spring Boot
+# =============================================
+
+# ─── Arquivos compilados Java ────────────────
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# ─── Pastas de build ─────────────────────────
+bin/
+out/
+build/
+target/
+
+# ─── Maven ───────────────────────────────────
+.mvn/bin/
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+
+# ─── Gradle ──────────────────────────────────
+.gradle/
+gradle/wrapper/gradle-wrapper.jar
+
+# ─── IDEs ────────────────────────────────────
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+
+# ─── macOS ───────────────────────────────────
+.DS_Store
+*.DS_Store
+
+# ─── Windows ─────────────────────────────────
+Thumbs.db
+desktop.ini
+
+# ─── Logs ────────────────────────────────────
+*.log
+logs/
+
+# ─── Variáveis de ambiente / segredos ────────
+.env
+.env.local
+application-secret.properties
+
+# ─── Backups de banco ────────────────────────
+*.mwb.bak
